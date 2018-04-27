@@ -8,7 +8,7 @@ public class ValidacaoArray {
 			if(leftIndex < 0 || (rightIndex != -1 && rightIndex != 0)){
 				throw new ArrayIndexOutOfBoundsException();
 			}
-		}else if(leftIndex < 0 || rightIndex > length) {
+		}else if(leftIndex < 0 || rightIndex > length || leftIndex > rightIndex) {
 			throw new ArrayIndexOutOfBoundsException();
 		}
 	}
