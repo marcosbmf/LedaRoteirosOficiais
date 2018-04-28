@@ -2,7 +2,6 @@ package sorting.variationsOfBubblesort;
 
 import sorting.AbstractSorting;
 import util.Util;
-import util.ValidacaoArray;
 
 /**
  * This algorithm applies two bubblesorts simultaneously. In a same iteration, a
@@ -17,8 +16,8 @@ public class SimultaneousBubblesort<T extends Comparable<T>> extends AbstractSor
 
 	public void sort(T[] array, int leftIndex, int rightIndex) {
 
-		ValidacaoArray.rangeCheck(array, leftIndex, rightIndex);
-		ValidacaoArray.nullElementCheck(array, leftIndex, rightIndex);
+		Util.rangeCheck(array, leftIndex, rightIndex);
+		Util.nullElementCheck(array, leftIndex, rightIndex);
 
 		boolean swap = true;
 		while (swap) {

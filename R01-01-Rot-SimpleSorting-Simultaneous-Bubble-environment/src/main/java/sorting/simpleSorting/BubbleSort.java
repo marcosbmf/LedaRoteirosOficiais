@@ -2,7 +2,6 @@ package sorting.simpleSorting;
 
 import sorting.AbstractSorting;
 import util.Util;
-import util.ValidacaoArray;
 
 /**
  * The bubble sort algorithm iterates over the array multiple times, pushing big
@@ -14,8 +13,8 @@ public class BubbleSort<T extends Comparable<T>> extends AbstractSorting<T> {
 	@Override
 	public void sort(T[] array, int leftIndex, int rightIndex) {
 
-		ValidacaoArray.rangeCheck(array, leftIndex, rightIndex);
-		ValidacaoArray.nullElementCheck(array, leftIndex, rightIndex);
+		Util.rangeCheck(array, leftIndex, rightIndex);
+		Util.nullElementCheck(array, leftIndex, rightIndex);
 
 		boolean swap = true;
 		while (swap) {
