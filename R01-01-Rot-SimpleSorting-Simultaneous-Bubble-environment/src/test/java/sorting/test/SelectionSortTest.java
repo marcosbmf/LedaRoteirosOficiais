@@ -172,4 +172,9 @@ public class SelectionSortTest {
 	public void testSort14() {
 		genericTest(vetorVazio, 0, vetorVazio.length - 2);
 	}
+	
+	@Test(expected=UnsupportedOperationException.class)
+	public void testSort15() {
+		genericTest(vetorTamPar, vetorTamPar.length - 1, 3);
+	}
 }

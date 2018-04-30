@@ -49,6 +49,8 @@ public class Util{
 			}
 		}else if(leftIndex < 0 || rightIndex > length) {
 			throw new ArrayIndexOutOfBoundsException();
+		} else if (leftIndex > rightIndex) {
+			throw new UnsupportedOperationException();
 		}
 	}
 	
@@ -57,6 +59,12 @@ public class Util{
 			if (array[i] == null) {
 				throw new NullPointerException();
 			}
+		}
+	}
+	
+	public static void nullArrayChecker(Object[] array) {
+		if (array == null) {
+			throw new NullPointerException();
 		}
 	}
 	

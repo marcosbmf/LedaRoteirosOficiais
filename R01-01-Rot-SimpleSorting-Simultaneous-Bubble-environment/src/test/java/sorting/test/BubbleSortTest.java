@@ -162,4 +162,19 @@ public class BubbleSortTest {
 	public void testSort12(){
 		genericTest(new Integer[] {1,2,3,4,9,4,3,2,null}, 0, 7);
 	}
+	
+	@Test(expected=ArrayIndexOutOfBoundsException.class)
+	public void testSort13() {
+		genericTest(vetorVazio, -3, 1);
+	}
+	
+	@Test(expected=ArrayIndexOutOfBoundsException.class)
+	public void testSort14() {
+		genericTest(vetorVazio, 0, vetorVazio.length - 2);
+	}
+	
+	@Test(expected=UnsupportedOperationException.class)
+	public void testSort15() {
+		genericTest(vetorTamPar, vetorTamPar.length - 1, 3);
+	}
 }

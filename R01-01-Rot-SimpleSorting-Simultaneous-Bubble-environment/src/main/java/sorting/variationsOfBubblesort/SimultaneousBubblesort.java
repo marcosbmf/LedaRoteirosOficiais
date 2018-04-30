@@ -16,6 +16,7 @@ public class SimultaneousBubblesort<T extends Comparable<T>> extends AbstractSor
 
 	public void sort(T[] array, int leftIndex, int rightIndex) {
 
+		Util.nullArrayChecker(array);
 		Util.rangeCheck(array, leftIndex, rightIndex);
 		Util.nullElementCheck(array, leftIndex, rightIndex);
 
