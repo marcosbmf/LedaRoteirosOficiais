@@ -88,7 +88,7 @@
 							<!-- insira sua matricula -->
 							<matricula>117110596</matricula>
 							<!-- insira o ID correto da atividade e a turma -->
-							<roteiro>R01-01</roteiro>
+							<roteiro>R02-01</roteiro>
 							<!-- NÃO MODIFIQUE AS TAGS ABAIXO -->
 							<semestre>2018.1</semestre>
 							<url>http://150.165.85.29:81/submitAtividade</url>
@@ -111,13 +111,13 @@
 						<configuration>
 							<!-- MODIFIQUE O ATRIBUTO ABAIXO PARA false CASO VOCE NAO QUEIRA GERAR 
 								O GRAFICO DOS ALGORITMOS -->
-							<generateGraph>true</generateGraph>
+							<generateGraph>false</generateGraph>
 							<!-- INSIRA OS NOMES COMPLETOS DAS CLASSES A SEREM TESTADAS AQUI (Full 
 								qualified name = nome com o pacote) -->
 							<qualifiedNames>
-								<name>sorting.simpleSorting.BubbleSort</name>
-								<name>sorting.simpleSorting.SelectionSort</name>
-								<name>sorting.simpleSorting.InsertionSort</name>
+								<!-- name>sorting.simpleSorting.BubbleSort</name -->
+								<!-- name>sorting.simpleSorting.SelectionSort</name -->
+								<!-- name>sorting.simpleSorting.InsertionSort</name -->
 							</qualifiedNames>
 						</configuration>
 					</execution>

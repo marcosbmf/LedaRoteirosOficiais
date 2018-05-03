@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="15" failures="0" name="sorting.test.InsertionSortTest" time="0.001" errors="0" skipped="0">
+<testsuite tests="15" failures="0" name="sorting.test.InsertionSortTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_144\jre\bin"/>
@@ -27,9 +27,9 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="C:\Users\Marcos Barros\eclipse-workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf5875473503003211643.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\Marcos Barros\eclipse-workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf8041142746861805442.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_144\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_144/bin/server;C:/Program Files/Java/jre1.8.0_144/bin;C:/Program Files/Java/jre1.8.0_144/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Users\Marcos Barros\AppData\Local\Programs\Python\Python36-32\;C:\Users\Marcos Barros\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\Marcos Barros\AppData\Local\Programs\Python\Python36-32\;C:\Users\Marcos Barros\AppData\Local\Microsoft\WindowsApps;C:\Users\Marcos Barros\AppData\Roaming\Dashlane\5.11.0.19338\bin\Firefox_Extension\{442718d9-475e-452a-b3e1-fb1ee16b8e9f}\components;C:\Users\Marcos Barros\AppData\Roaming\Dashlane\5.11.0.19338\ucrt;C:\WINDOWS\System32;;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_144\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_144/bin/server;C:/Program Files/Java/jre1.8.0_144/bin;C:/Program Files/Java/jre1.8.0_144/lib/amd64;C:\Program Files (x86)\Intel\iCLS Client\;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Users\Marcos Barros\AppData\Local\Programs\Python\Python36-32\;;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Users\Marcos Barros\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\Marcos Barros\AppData\Local\Programs\Python\Python36-32\;C:\Users\Marcos Barros\AppData\Local\Microsoft\WindowsApps;C:\Users\Marcos Barros\AppData\Roaming\Dashlane\5.11.0.19338\bin\Firefox_Extension\{442718d9-475e-452a-b3e1-fb1ee16b8e9f}\components;C:\Users\Marcos Barros\AppData\Roaming\Dashlane\5.11.0.19338\ucrt;C:\Users\Marcos Barros\eclipse\java-oxygen\eclipse;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -38,7 +38,7 @@
     <property name="user.timezone" value="America/Cayenne"/>
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
     <property name="java.specification.version" value="1.8"/>
-    <property name="file.encoding" value="Cp1252"/>
+    <property name="file.encoding" value="UTF-8"/>
     <property name="user.name" value="Marcos Barros"/>
     <property name="java.class.path" value="C:\Users\Marcos Barros\.p2\pool\plugins\org.eclipse.m2e.maven.runtime_1.8.2.20171007-0216\jars\plexus-classworlds-2.5.2.jar"/>
     <property name="java.vm.specification.version" value="1.8"/>
@@ -72,7 +72,7 @@
   <testcase classname="sorting.test.InsertionSortTest" name="testSort09" time="0"/>
   <testcase classname="sorting.test.InsertionSortTest" name="testSort10" time="0"/>
   <testcase classname="sorting.test.InsertionSortTest" name="testSort11" time="0"/>
-  <testcase classname="sorting.test.InsertionSortTest" name="testSort12" time="0.001"/>
+  <testcase classname="sorting.test.InsertionSortTest" name="testSort12" time="0"/>
   <testcase classname="sorting.test.InsertionSortTest" name="testSort13" time="0"/>
   <testcase classname="sorting.test.InsertionSortTest" name="testSort14" time="0"/>
   <testcase classname="sorting.test.InsertionSortTest" name="testSort15" time="0"/>
