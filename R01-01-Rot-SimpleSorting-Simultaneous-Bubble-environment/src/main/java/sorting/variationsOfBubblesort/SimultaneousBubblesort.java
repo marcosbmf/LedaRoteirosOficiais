@@ -21,9 +21,10 @@ public class SimultaneousBubblesort<T extends Comparable<T>> extends AbstractSor
 		Util.nullElementCheck(array, leftIndex, rightIndex);
 
 		boolean swap = true;
+		int K = 0;
 		while (swap) {
 			swap = false;
-			for (int i = 0; i < rightIndex - leftIndex; i++) {
+			for (int i = K; i < rightIndex - leftIndex - K; i++) {
 				if (array[leftIndex + i].compareTo(array[leftIndex + i + 1]) > 0) {
 					Util.swap(array, leftIndex + i, leftIndex + i + 1);
 					swap = true;
@@ -33,6 +34,7 @@ public class SimultaneousBubblesort<T extends Comparable<T>> extends AbstractSor
 					swap = true;
 				}
 			}
+			K++;
 		}
 
 	}
