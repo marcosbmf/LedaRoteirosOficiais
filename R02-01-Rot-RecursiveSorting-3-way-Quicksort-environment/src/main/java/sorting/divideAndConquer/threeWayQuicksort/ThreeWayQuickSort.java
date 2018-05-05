@@ -24,10 +24,15 @@ public class ThreeWayQuickSort<T extends Comparable<T>> extends AbstractSorting<
 	 **/
 	@Override
 	public void sort(T[] array, int leftIndex, int rightIndex) {
-		Util.nullArrayChecker(array);
-		Util.rangeCheck(array, leftIndex, rightIndex);
-		Util.nullElementCheck(array, leftIndex, rightIndex);
-
+		
+		try {
+			Util.nullArrayChecker(array);
+			Util.rangeCheck(array, leftIndex, rightIndex);
+			Util.nullElementCheck(array, leftIndex, rightIndex);
+		} catch (Exception e) {
+			return;
+		}
+		
 		int tamVetor = rightIndex - leftIndex + 1;
 
 		if (tamVetor <= 1) {
