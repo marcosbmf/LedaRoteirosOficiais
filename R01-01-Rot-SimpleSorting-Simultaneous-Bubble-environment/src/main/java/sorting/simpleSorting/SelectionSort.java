@@ -2,7 +2,6 @@ package sorting.simpleSorting;
 
 import sorting.AbstractSorting;
 import util.Util;
-import util.ValidacaoArray;
 
 /**
  * The selection sort algorithm chooses the smallest element from the array and
@@ -14,8 +13,9 @@ public class SelectionSort<T extends Comparable<T>> extends AbstractSorting<T> {
 	@Override
 	public void sort(T[] array, int leftIndex, int rightIndex) {
 		
-		ValidacaoArray.rangeCheck(array, leftIndex, rightIndex);
-		ValidacaoArray.nullElementCheck(array, leftIndex, rightIndex);
+		Util.nullArrayChecker(array);
+		Util.rangeCheck(array, leftIndex, rightIndex);
+		Util.nullElementCheck(array, leftIndex, rightIndex);
 		
 		for (int i = leftIndex; i <= rightIndex; i++) {
 			T menor = array[i];
