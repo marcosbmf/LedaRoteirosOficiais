@@ -14,9 +14,9 @@ public class ExtendedCountingSort extends AbstractSorting<Integer> {
 	public void sort(Integer[] array, int leftIndex, int rightIndex) {
 		
 		try {
-			this.nullArrayChecker(array);
-			this.rangeCheck(array, leftIndex, rightIndex);
-			this.nullElementCheck(array, leftIndex, rightIndex);
+			nullArrayChecker(array);
+			rangeCheck(array, leftIndex, rightIndex);
+			nullElementCheck(array, leftIndex, rightIndex);
 		} catch (Exception e) {
 			return;
 		}
@@ -27,47 +27,28 @@ public class ExtendedCountingSort extends AbstractSorting<Integer> {
 		
 		int tamanhoArray = rightIndex - leftIndex +1;
 		int maior = getMaiorInteiro(array, leftIndex, rightIndex);
-		int menor = getMenorInteiroNegativo(array, leftIndex, rightIndex);
+		int menor = getMenorInteiro(array, leftIndex, rightIndex);
 		
 		Integer[] arrayResultado = new Integer[tamanhoArray];
-		int[] arraySomaAcumuladaPositivo = new int[maior + 1];
-		int[] arraySomaAcumuladaNegativo = new int[(-1*menor) + 1];
+		int[] arraySomaAcumulada = new int[maior - menor + 1];
 		
 		//Conta os números do array
 		int indice = 0;
 		for (int i = leftIndex; i <= rightIndex; i++) {
-			indice = array[i];
-			if (indice < 0) {
-				arraySomaAcumuladaNegativo[-1*indice] ++;
-			}else {
-				arraySomaAcumuladaPositivo[indice]++;
-			}
+			indice = array[i] - menor;
+			arraySomaAcumulada[indice] ++;
 		}
 		
 		//Soma acumulada
-		for (int i = arraySomaAcumuladaNegativo.length-2; i >= 0; i--) {
-			arraySomaAcumuladaNegativo[i] += arraySomaAcumuladaNegativo[i+1]; 
-		}
-		
-		arraySomaAcumuladaPositivo[0] += arraySomaAcumuladaNegativo[0];
-		
-		for (int i = 1; i < arraySomaAcumuladaPositivo.length; i++) {
-			arraySomaAcumuladaPositivo[i] += arraySomaAcumuladaPositivo[i-1]; 
+		for (int i = 1; i < arraySomaAcumulada.length; i++) {
+			arraySomaAcumulada[i] += arraySomaAcumulada[i-1]; 
 		}
 		
 		//Coloca cada elemento em sua posição correta.
-		int elemento;
 		for (int i = leftIndex; i <= rightIndex; i++) {
-			elemento = array[i];
-			if (elemento >= 0) {
-				arraySomaAcumuladaPositivo[elemento]--;
-				indice = arraySomaAcumuladaPositivo[elemento];
-				arrayResultado[indice] = elemento;
-			} else {
-				arraySomaAcumuladaNegativo[elemento*-1]--;
-				indice = arraySomaAcumuladaNegativo[elemento*-1];
-				arrayResultado[indice] = elemento;
-			}
+			arraySomaAcumulada[array[i] - menor]--;
+			indice = arraySomaAcumulada[array[i] - menor];
+			arrayResultado[indice] = array[i]; 
 		}
 		
 		for (int i = 0; i < arrayResultado.length; i++) {
@@ -76,27 +57,24 @@ public class ExtendedCountingSort extends AbstractSorting<Integer> {
 		
 	}
 
+	private int getMenorInteiro(Integer[] array, int leftIndex, int rightIndex) {
+		int menor = array[leftIndex];
+		for(int i = leftIndex+1; i <= rightIndex; i++) {
+			if (array[i].compareTo(menor) < 0) {
+				menor = array[i];
+			}
+		}
+		return menor;
+	}
+
 	private int getMaiorInteiro(Integer[] array, int leftIndex, int rightIndex) {
-		Integer maior = array[leftIndex];
+		int maior = array[leftIndex];
 		for(int i = leftIndex+1; i <= rightIndex; i++) {
 			if (array[i].compareTo(maior) > 0) {
 				maior = array[i];
 			}
 		}
-		if (maior < 0){
-			return 0;
-		}
-		return (int) maior;
-	}
-	
-	private int getMenorInteiroNegativo(Integer[] array, int leftIndex, int rightIndex) {
-		Integer menor = 0;
-		for(int i = leftIndex; i < rightIndex + 1; i++) {
-			if (array[i].compareTo(menor) < 0 ) {
-				menor = array[i];
-			}
-		}
-		return (int) menor;
+		return maior;
 	}
 	
 	private void rangeCheck(Object[] array, int leftIndex, int rightIndex) {
