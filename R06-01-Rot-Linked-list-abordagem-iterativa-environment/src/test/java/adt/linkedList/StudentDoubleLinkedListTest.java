@@ -68,6 +68,13 @@ public class StudentDoubleLinkedListTest extends StudentLinkedListTest {
 		System.out.println(lista3.search(2));
 		System.out.println(lista3.search(3));
 		System.out.println(lista3.search(4));
+		System.out.println(Arrays.toString(lista3.toArray()));
+		lista3.remove(1);
+		lista3.remove(1);
+		lista3.remove(4);
+		lista3.remove(2);
+		System.out.println(Arrays.toString(lista3.toArray()));
+		
 		
 	}
 }
