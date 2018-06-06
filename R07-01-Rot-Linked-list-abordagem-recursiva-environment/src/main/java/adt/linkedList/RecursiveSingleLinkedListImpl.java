@@ -17,38 +17,71 @@ public class RecursiveSingleLinkedListImpl<T> implements LinkedList<T> {
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
+		return this.data == null;
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
+		if (this.isEmpty()) {
+			return 0;
+		} else {
+			return 1 + this.next.size();
+		}
 	}
 
 	@Override
 	public T search(T element) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
+		if (this.isEmpty()) {
+			return null;
+		} else {
+			if (this.data.equals(element)) {
+				return element;
+			} else {
+				return this.next.search(element);
+			}
+		}
 	}
 
 	@Override
 	public void insert(T element) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
+		if (element != null) {
+			if (this.isEmpty()) {
+				this.setData(element);
+				this.setNext(new RecursiveSingleLinkedListImpl<T>());
+			} else {
+				this.next.insert(element);
+			}
+		}
 	}
 
 	@Override
 	public void remove(T element) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
+		if (!this.isEmpty() && element != null) {
+			if (data.equals(element)) {
+				this.setData(this.next.getData());
+				this.setNext(this.next.getNext());
+			} else {
+				this.next.remove(element);
+			}
+		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public T[] toArray() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
+		T[] array = (T[]) new Object[this.size()];
+		fillArray(array, 0);
+		return array;
+	}
+	
+	private T[] fillArray(T[] array, int index) {
+		if (this.data == null) {
+			return array;
+		} else {
+			array[index] = this.data;
+			index++;
+			return next.fillArray(array, index);
+		}
 	}
 
 	public T getData() {
