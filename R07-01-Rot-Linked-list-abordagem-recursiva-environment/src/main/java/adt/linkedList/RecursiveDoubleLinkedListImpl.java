@@ -21,7 +21,9 @@ public class RecursiveDoubleLinkedListImpl<T> extends RecursiveSingleLinkedListI
 				this.insertFirst(element);
 			} else if (this.next.isEmpty()) {
 				this.next.data = element;
-				this.next.next = new RecursiveDoubleLinkedListImpl<T>(null, null, (RecursiveDoubleLinkedListImpl<T>) this.next);
+				if (this.next instanceof RecursiveDoubleLinkedListImpl<?>) {
+					this.next.next = new RecursiveDoubleLinkedListImpl<T>(null, null, (RecursiveDoubleLinkedListImpl<T>) this.next);
+				}
 			} else {
 				this.next.insert(element);
 			}
@@ -37,7 +39,9 @@ public class RecursiveDoubleLinkedListImpl<T> extends RecursiveSingleLinkedListI
 				this.previous = new RecursiveDoubleLinkedListImpl<T>(null, this, null);
 			} else {
 				RecursiveDoubleLinkedListImpl<T> aux = new RecursiveDoubleLinkedListImpl<T>(this.data, this.next, this);
-				((RecursiveDoubleLinkedListImpl<T>) aux.next).previous = aux;
+				if (aux.next instanceof RecursiveDoubleLinkedListImpl<?>) {
+					((RecursiveDoubleLinkedListImpl<T>) aux.next).previous = aux;
+				}
 				this.data = element;
 				this.next = aux;
 			}
@@ -51,7 +55,9 @@ public class RecursiveDoubleLinkedListImpl<T> extends RecursiveSingleLinkedListI
 				if (this.previous.isEmpty()) {
 					this.removeFirst();
 				} else {
-					((RecursiveDoubleLinkedListImpl<T>) this.next).previous = this.previous;
+					if (this.next instanceof RecursiveDoubleLinkedListImpl<?>) {
+						((RecursiveDoubleLinkedListImpl<T>) this.next).previous = this.previous;
+					}
 					this.previous.next = this.next;
 				}
 			} else {
@@ -68,7 +74,9 @@ public class RecursiveDoubleLinkedListImpl<T> extends RecursiveSingleLinkedListI
 			} else {
 				this.data = this.next.data;
 				this.next = this.next.next;
-				((RecursiveDoubleLinkedListImpl<T>) this.next).previous = this;
+				if (this.next instanceof RecursiveDoubleLinkedListImpl<?>) {
+					((RecursiveDoubleLinkedListImpl<T>) this.next).previous = this;
+				}
 			}
 		}
 	}
@@ -80,7 +88,9 @@ public class RecursiveDoubleLinkedListImpl<T> extends RecursiveSingleLinkedListI
 				this.data = null;
 				this.next = null;
 			} else {
-				((RecursiveDoubleLinkedListImpl<T>) this.next).removeLast();
+				if (this.next instanceof RecursiveDoubleLinkedListImpl<?>) {
+					((RecursiveDoubleLinkedListImpl<T>) this.next).removeLast();
+				}
 			}
 		}
 	}
