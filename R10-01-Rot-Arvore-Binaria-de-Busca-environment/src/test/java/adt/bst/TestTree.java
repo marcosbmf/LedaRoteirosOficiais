@@ -99,5 +99,12 @@ public class TestTree {
 		System.out.println(Arrays.toString(tree.postOrder()));
 		assertArrayEquals(preOrder, tree.preOrder());
 	}
+	
+	@Test
+	public void removeLast() {
+		this.tree.insert(10);this.tree.insert(20);
+		this.tree.remove(this.tree.getRoot().getData());
+		System.out.println(Arrays.toString(tree.preOrder()));
+	}
 
 }
