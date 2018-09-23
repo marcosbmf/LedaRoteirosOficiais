@@ -35,17 +35,11 @@ public class SortComparatorBSTImpl<T extends Comparable<T>> extends BSTImpl<T> i
 
 	@Override
 	public T[] sort(T[] array) {
-		T[] sorted = (T[]) new Comparable[this.size()];
 		SortComparatorBST<T> sort = new SortComparatorBSTImpl<T>(this.comparator);
 		for (int i = 0; i < array.length; i++) {
 			sort.insert(array[i]);
 		}
-		for (int i = array.length; i >= 0; i--) {
-			BSTNode<T> maximum = sort.maximum();
-			sorted[i] = maximum.getData();
-			sort.remove(maximum.getData());
-		}
-		return sorted;
+		return sort.order();
 	}
 	
 	@Override
@@ -74,7 +68,7 @@ public class SortComparatorBSTImpl<T extends Comparable<T>> extends BSTImpl<T> i
 
 	private BSTNode<T> search(T element, BSTNode<T> node) {
 		BSTNode<T> result = new BSTNode<T>();
-		if (!node.isEmpty()) {
+		if (node != null && !node.isEmpty()) {
 			int compare = this.compare(element, node.getData());
 			if (compare == 0) {
 				result = node;

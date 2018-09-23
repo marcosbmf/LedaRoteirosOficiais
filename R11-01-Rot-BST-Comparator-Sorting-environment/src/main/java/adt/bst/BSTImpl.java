@@ -170,45 +170,23 @@ public class BSTImpl<T extends Comparable<T>> implements BST<T> {
 	}
 
 	private void remove(BSTNode<T> node) {
-		if (!node.isEmpty()) {
+		if (node != null && !node.isEmpty()) {
 			if (node.isLeaf()) {
 				node.setData(null);
 				node.setLeft(null);
 				node.setRight(null);
-			} else if (node.getLeft().isEmpty() || node.getRight().isEmpty()) {
-				if (!isRoot(node)) {
-					if (node.getData().compareTo(node.getParent().getLeft().getData()) == 0) {
-						if (node.getLeft().isEmpty()) {
-							node.getRight().setParent(node.getParent());
-							node.getParent().setLeft(node.getRight());
-						} else {
-							node.getLeft().setParent(node.getParent());
-							node.getParent().setLeft(node.getLeft());
-						}
-					} else {
-						if (node.getLeft().isEmpty()) {
-							node.getRight().setParent(node.getParent());
-							node.getParent().setRight(node.getRight());
-						} else {
-							node.getLeft().setParent(node.getParent());
-							node.getParent().setRight(node.getLeft());
-						}
-					}
-				} else {
-					if (node.getLeft().isEmpty()) {
-						this.root = (BSTNode<T>) node.getRight();
-						this.root.setParent(null);
-					} else {
-						this.root = (BSTNode<T>) node.getLeft();
-						this.root.setParent(null);
-					}
-				}
-			} else {
-				BSTNode<T> suc = this.sucessor(node.getData());
-				if (suc != null) {
-					node.setData(suc.getData());
-					this.remove(suc);
-				}
+			} else if (!node.getRight().isEmpty()) {
+				BSTNode<T> sucessor = sucessor(node.getData());
+				T aux = node.getData();
+				node.setData(sucessor.getData());
+				sucessor.setData(aux);
+				remove(sucessor);
+			} else if (!node.getLeft().isEmpty()) {
+				BSTNode<T> predecessor = predecessor(node.getData());
+				T aux = node.getData();
+				node.setData(predecessor.getData());
+				predecessor.setData(aux);
+				remove(predecessor);
 			}
 		}
 	}

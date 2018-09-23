@@ -3,6 +3,7 @@ package adt.bst;
 import static org.junit.Assert.*;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -15,6 +16,14 @@ public class StudentBSTTest {
 
 	private SortComparatorBSTImpl<Integer> tree;
 	private BTNode<Integer> NIL = new BTNode<Integer>();
+	Comparator<Integer> comparator = new Comparator<Integer>() {
+
+		@Override
+		public int compare(Integer o1, Integer o2) {
+			return o1.compareTo(o2);
+		}
+		
+	};
 
 	private void fillTree() {
 		Integer[] array = { 6, 23, -34, 5, 9, 2, 0, 76, 12, 67, 232, -40 };
@@ -25,7 +34,7 @@ public class StudentBSTTest {
 
 	@Before
 	public void setUp() {
-		tree = new SortComparatorBSTImpl<Integer>(null);
+		tree = new SortComparatorBSTImpl<Integer>(comparator);
 	}
 
 	@Test
@@ -132,8 +141,6 @@ public class StudentBSTTest {
 
 		Integer[] order = { -40, -34, 0, 2, 5, 6, 9, 12, 23, 67, 76, 232 };
 		assertArrayEquals(order, tree.order());
-		System.out.println(Arrays.toString(this.tree.order()));
-		System.out.println(Arrays.toString(this.tree.reverseOrder()));
 
 		tree.remove(6);
 		order = new Integer[] { -40, -34, 0, 2, 5, 9, 12, 23, 67, 76, 232 };
@@ -156,5 +163,11 @@ public class StudentBSTTest {
 		assertEquals(new Integer(-40), tree.search(-40).getData());
 		assertEquals(new Integer(-34), tree.search(-34).getData());
 		assertEquals(NIL, tree.search(2534));
+	}
+	
+	@Test
+	public void finalTest() {
+		this.fillTree();
+		System.out.println(Arrays.toString(this.tree.order()));
 	}
 }
